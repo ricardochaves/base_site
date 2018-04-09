@@ -9,7 +9,7 @@ Clone the project
 git clone https://github.com/ricardochaves/base_site.git
 ```
 
-Go to `base_siteà dir 
+Go to `base_site` dir 
 ```
 cd base_site
 ```
