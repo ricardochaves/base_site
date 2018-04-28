@@ -9,7 +9,7 @@ WORKDIR /base_site
 
 ADD . /base_site
 
-RUN apt-get install libmysqlclient-dev
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
-RUN pip install -r requirements_dev.txt
+RUN apt-get install libmysqlclient-dev && \
+    pip install --upgrade pip && \
+    pip install -r requirements.txt && \
+    pip install -r requirements_dev.txt

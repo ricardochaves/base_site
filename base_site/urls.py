@@ -15,8 +15,15 @@ Including another URLconf
 """
 
 from django_invisible_recaptcha_admin.admin import my_admin
+from django.conf import settings
+from django.conf.urls import url
+from django.conf.urls.static import static
 from django.urls import path
 
+from mainapp import views
+
 urlpatterns = [
+    url(r'^$', views.index, name='index'),
+
     path('admin/', my_admin.urls),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

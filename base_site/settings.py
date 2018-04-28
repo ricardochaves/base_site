@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'mainapp',
     'django_invisible_recaptcha_admin',
     'nocaptcha_recaptcha',
     'django.contrib.admin',
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    # Ao alterar essa lista leiam https://github.com/cobrateam/django-htmlmin
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -49,6 +51,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'htmlmin.middleware.HtmlMinifyMiddleware',
+    'htmlmin.middleware.MarkRequestMiddleware',
 ]
 
 ROOT_URLCONF = 'base_site.urls'
@@ -77,12 +81,15 @@ WSGI_APPLICATION = 'base_site.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', 
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': os.getenv('DB_DATA_BASE'),
         'USER': os.getenv('DB_USER'),
         'PASSWORD': os.getenv('DB_PASSWORD'),
         'HOST': os.getenv('DB_HOST'),
         'PORT': os.getenv('DB_PORT'),
+        'TEST': {
+            'NAME': 'mytestdatabase',
+        },
     }
 }
 
@@ -131,6 +138,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 NORECAPTCHA_SITE_KEY = '6LfJmisUAAAAADZl9rfFdRKoDUYrThVa03aovKfg'
 NORECAPTCHA_SECRET_KEY = '6LfJmisUAAAAAA1O15EqlOcDOlu9PuC5aGOQ4NOg'
