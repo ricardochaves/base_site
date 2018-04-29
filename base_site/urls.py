@@ -13,9 +13,17 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
+
+from django_invisible_recaptcha_admin.admin import my_admin
+from django.conf import settings
+from django.conf.urls import url
+from django.conf.urls.static import static
 from django.urls import path
 
+from mainapp import views
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
-]
+    url(r'^$', views.index, name='index'),
+
+    path('admin/', my_admin.urls),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

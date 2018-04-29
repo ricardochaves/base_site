@@ -1,1 +1,6 @@
 ptvsd
+pylint
+autopep8
+coverage
+coveralls
+python-coveralls

@@ -2,3 +2,5 @@ django
 mysqlclient
 honcho
 gunicorn
+django_invisible_recaptcha_admin
+django-htmlmin

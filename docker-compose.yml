@@ -7,6 +7,8 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: example
+    volumes:
+      - ./mysql/init:/docker-entrypoint-initdb.d/:ro
   web:
     build: .
     ports:
@@ -14,7 +16,7 @@ services:
       - "5005:5005"
     env_file: .env
     volumes:
-      - .:/iluvatar
+      - .:/base_site
     depends_on:
       - redis
       - db
