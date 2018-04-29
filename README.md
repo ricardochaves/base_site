@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/ricardochaves/base_site.svg?branch=master)](https://travis-ci.org/ricardochaves/base_site) [![Coverage Status](https://coveralls.io/repos/github/ricardochaves/base_site/badge.svg)](https://coveralls.io/github/ricardochaves/base_site)
 
-A skeleton with Django and Docker
+A skeleton with Django and Docker.
 
 ## Execute
 
