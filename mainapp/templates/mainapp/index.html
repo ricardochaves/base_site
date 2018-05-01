@@ -1,5 +1,4 @@
-{% load staticfiles %}
-
+{% load staticfiles %} {% load thumbnail %}
 <!DOCTYPE html>
 <!--
 	Metronic by TEMPLATE STOCK
@@ -90,6 +89,15 @@
                 <div class="logo-site animated bounceInDown" data-animation-delay="700">
                     <img class="img-responsive" src="{% static 'mainapp/images/logo.png' %}" data-at2x="{% static 'mainapp/images/logo@2x.png' %}"
                         alt="Logo" />
+                </div>
+            </header>
+            <!-- /header -->
+
+            <!-- header -->
+            <header class="header-site">
+                <div class="logo-site animated bounceInDown" data-animation-delay="700">
+                    {% for e in examples %}
+                    <img class="img-responsive" src="{% thumbnail e.image 430x360 box=e.cropping crop detail %}" alt="Logo" /> {% endfor %}
                 </div>
             </header>
             <!-- /header -->
