@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from mainapp.models import ModelExample
+
 from htmlmin.decorators import minified_response
 # Create your views here.
 
@@ -8,5 +10,5 @@ from htmlmin.decorators import minified_response
 
 @minified_response
 def index(request):
-
-    return render(request, 'mainapp/index.html')
+    examples = ModelExample.objects.filter(active=True)
+    return render(request, 'mainapp/index.html', {'examples': examples, })

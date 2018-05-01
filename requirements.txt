@@ -4,3 +4,5 @@ honcho
 gunicorn
 django_invisible_recaptcha_admin
 django-htmlmin
+django-image-cropping
+easy_thumbnails
