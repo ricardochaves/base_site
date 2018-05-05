@@ -1,4 +1,4 @@
-ptvsd
+ptvsd==3.2.1
 pylint
 autopep8
 coverage
