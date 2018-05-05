@@ -4,5 +4,5 @@ honcho==1.0.1
 gunicorn==19.8.1
 django_invisible_recaptcha_admin==1.0.0
 django-htmlmin==0.10.0
-django-image-cropping
+django-image-cropping==1.1.0
 easy_thumbnails
