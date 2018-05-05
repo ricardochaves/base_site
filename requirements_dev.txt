@@ -1,5 +1,5 @@
 ptvsd==3.2.1
-pylint
+pylint==1.8.4
 autopep8
 coverage
 coveralls
