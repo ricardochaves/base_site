@@ -1,6 +1,6 @@
 django==2.0.5
 mysqlclient==1.3.12
-honcho
+honcho==1.0.1
 gunicorn
 django_invisible_recaptcha_admin
 django-htmlmin
