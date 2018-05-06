@@ -1,6 +1,6 @@
-ptvsd
-pylint
-autopep8
-coverage
-coveralls
-python-coveralls
+ptvsd==3.2.1
+pylint==1.8.4
+autopep8==1.3.5
+coverage==4.5.1
+coveralls==1.3.0
+python-coveralls==2.9.1
