@@ -144,8 +144,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 
-NORECAPTCHA_SITE_KEY = ''
-NORECAPTCHA_SECRET_KEY = ''
+NORECAPTCHA_SITE_KEY = os.environ['NORECAPTCHA_SITE_KEY']
+NORECAPTCHA_SECRET_KEY = os.environ['NORECAPTCHA_SECRET_KEY']
 
 from easy_thumbnails.conf import Settings as thumbnail_settings
 THUMBNAIL_PROCESSORS = (
