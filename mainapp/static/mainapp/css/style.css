@@ -236,7 +236,6 @@ strong {
 	position: fixed;
 	width: 150%;
 	height: 150%;
-	background-image:url(../images/bg/parallax-bg.jpg);
 	-webkit-background-size: cover;
 	background-size: cover;
 }
