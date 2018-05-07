@@ -3,7 +3,7 @@
 .vscode
 *.sqlite3
 .DS_Store
-static/*
+staticfiles/*
 .coverage
 media/*
 .env
