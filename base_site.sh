@@ -1,3 +1,5 @@
+#!/bin/bash 
+
 export $(egrep -v '^#' .env | xargs)
 
 python manage.py makemigrations
