@@ -1,12 +1,14 @@
 from django.test import TestCase
-
+from mainapp.models import ModelExample
 # Create your tests here.
 
 
-class TODOTestCase(TestCase):
+class ModelExampleTestCase(TestCase):
     def setUp(self):
         pass
 
-    def test_TODO(self):
-        """Unit: TODO: TODO need do"""
-        self.assertEqual(1, 1)
+    def test_createmodel(self):
+        """Test: Should create model"""
+
+        modelexemple = ModelExample.objects.create(title="oi", content="teste")
+        self.assertEqual(modelexemple.title, "oi")
