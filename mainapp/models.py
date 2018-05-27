@@ -1,6 +1,7 @@
 from django.db import models
 
 from image_cropping import ImageRatioField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 
@@ -10,3 +11,4 @@ class ModelExample(models.Model):
     image = models.ImageField(blank=True, upload_to='uploaded_images', verbose_name='Image')
     cropping = ImageRatioField('image', '430x360', verbose_name='Crop Image')
     active = models.BooleanField(verbose_name="Active", default=False)
+    content = RichTextUploadingField("contents")
