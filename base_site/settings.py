@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+from easy_thumbnails.conf import Settings as thumbnail_settings
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '3ot&@+6-ue!i)jbx-adyr-+^a(ik)$*y^tb$(98f2$1k*=$7zi'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -32,6 +33,8 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'mainapp',
+    'ckeditor',
+    'ckeditor_uploader',
     'django_invisible_recaptcha_admin',
     'nocaptcha_recaptcha',
     'django.contrib.admin',
@@ -99,13 +102,6 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
@@ -142,6 +138,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
+
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
@@ -151,7 +148,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 NORECAPTCHA_SITE_KEY = os.environ['NORECAPTCHA_SITE_KEY']
 NORECAPTCHA_SECRET_KEY = os.environ['NORECAPTCHA_SECRET_KEY']
 
-from easy_thumbnails.conf import Settings as thumbnail_settings
+
 THUMBNAIL_PROCESSORS = (
     'image_cropping.thumbnail_processors.crop_corners',
 ) + thumbnail_settings.THUMBNAIL_PROCESSORS
@@ -168,4 +165,13 @@ CACHES = {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
     }
+}
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_IMAGE_BACKEND = "pillow"
+CKEDITOR_UPLOAD_SLUGIFY_FILENAME = True
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': None,
+    },
 }

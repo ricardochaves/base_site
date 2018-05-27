@@ -1,18 +1,7 @@
 {% load static %} {% load thumbnail %}
-<!DOCTYPE html>
-<!--
-	Metronic by TEMPLATE STOCK
-	templatestock.co @templatestock
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
-
 
 <!DOCTYPE html>
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en-US"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="en-US">
-<!--<![endif]-->
+<html lang="en-US">
 
 <head>
 
@@ -28,198 +17,30 @@
 
 
     <!-- CSS Global Compulsory -->
-    <link rel="stylesheet" href="{% static 'mainapp/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'mainapp/css/style.css' %}">
-
-    <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" type="text/css" href="{% static 'mainapp/css/font-awesome.min.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'mainapp/css/ionicons.min.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'mainapp/css/animate.min.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'mainapp/css/flexslider.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'mainapp/css/owl.carousel.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'mainapp/css/owl.theme.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'mainapp/css/vegas.min.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'mainapp/css/menu.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'mainapp/css/sidebar.css' %}" />
 
     <!-- Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,700italic,400,300,700&amp;subset=latin,latin-ext'
         rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700,900' rel='stylesheet' type='text/css'>
 
-
-    <!-- JS -->
-    <script type="text/javascript" src="{% static 'mainapp/js/modernizr.js' %}"></script>
-    <script type="text/javascript" src="{% static 'mainapp/js/snap.svg-min.js' %}"></script>
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-<script src="http://webnextbd.net/demo/js/respond.min.js"></script>
-<![endif]-->
-
-    <!--[if lt IE 11]>
-<link rel="stylesheet" type="text/css" href="http://webnextbd.net/demo/css/ie.css">
-<![endif]-->
-
 </head>
 
 <body class="image-background">
 
-    <!-- Preloader -->
-    <div id="preloader">
-        <div id="loading-animation">&nbsp;</div>
-    </div>
-    <!-- /Preloader -->
-
-    <!-- Overlay -->
-    <div id="section-home" class="home-section-wrap center">
-        <div class="section-overlay"></div>
-    </div>
-    <!-- /Overlay -->
-
-    <!-- container -->
-    <div class="containers">
 
 
-        <!-- main -->
-        <div class="main">
-            <!-- header -->
-            <header class="header-site">
-                <div class="logo-site animated bounceInDown" data-animation-delay="700">
-                    <img class="img-responsive" src="{% static 'mainapp/images/logo.png' %}" data-at2x="{% static 'mainapp/images/logo@2x.png' %}"
-                        alt="Logo" />
-                </div>
-            </header>
-            <!-- /header -->
+    {% for e in examples %}
 
-            <!-- header -->
-            <header class="header-site">
-                <div class="logo-site animated bounceInDown" data-animation-delay="700">
-                    {% for e in examples %}
-                    <img class="img-responsive" src="{% thumbnail e.image 430x360 box=e.cropping crop detail %}" alt="Logo" /> {% endfor %}
-                </div>
-            </header>
-            <!-- /header -->
+    <label>Imagem:</label>
+    <img src="{% thumbnail e.image 430x360 box=e.cropping crop detail %}" alt="Logo" />
+    <label>Título:</label>
+    <p>{{e.title}}</p>
+    <label>Post:</label>
+    <div>{{e.content|safe}}</div>
+    {% endfor %}
 
-            <!-- section -->
-            <section class="section fullscreen site-main">
-                <div class="container-section">
-                    <div class="container-table">
-                        <div class="content-table">
-                            <!-- bt-carousel -->
-                            <div class="bt-carousel">
 
-                                <!-- home section -->
-                                <div class="item-slide show">
-                                    <!-- container -->
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-md-10 col-md-offset-1">
-
-                                                <!-- content slide -->
-                                                <div class="content-slide">
-                                                    <!-- Clock Countdown -->
-                                                    <div id="clock-countdown" class="animated bounceInDown" data-animation-delay="700"></div>
-                                                    <h3 class="color-white top-margin animated bounceInDown" data-animation-delay="700">Our website is under construction. We`ll be here soon with our new awesome
-                                                        site, subscribe to be notified.</h3>
-
-                                                    <!-- Subscribe Form -->
-                                                    <div class="form animated bounceInUp" data-animation-delay="700">
-                                                        <!-- container form -->
-                                                        <div class="container-form">
-
-                                                        </div>
-                                                        <!-- /section page -->
-                                                    </div>
-                                                    <!-- /container form -->
-                                                </div>
-                                                <!-- /Subscribe Form -->
-
-                                                <!-- socials icons -->
-                                                <nav class="socials-icons animated bounceInUp" data-animation-delay="700">
-                                                    <ul>
-                                                        <li>
-                                                            <a href="#">
-                                                                <i class="ion-social-facebook"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">
-                                                                <i class="ion-social-twitter"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">
-                                                                <i class="ion-social-googleplus"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">
-                                                                <i class="ion-social-linkedin"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">
-                                                                <i class="ion-social-pinterest"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">
-                                                                <i class="ion-social-dribbble-outline"></i>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </nav>
-                                                <!-- /socials icons -->
-
-                                                <!-- copyright -->
-                                                <footer class="copy-right animated bounceInUp" data-animation-delay="700">
-                                                    <div class="copyright">
-                                                        © 2016
-                                                        <a href="http://templatestock.co">Template Stock</a> - All Rights Reserved
-                                                    </div>
-                                                </footer>
-                                                <!-- /copyright -->
-
-                                            </div>
-                                            <!-- /content slide -->
-                                        </div>
-                                    </div>
-                                    <!-- /row -->
-                                </div>
-                                <!-- /container -->
-                            </div>
-                            <!-- /home section -->
-
-                        </div>
-                        <!-- /bt-carousel -->
-                    </div>
-                </div>
-        </div>
-        </section>
-        <!-- /section -->
-    </div>
-    <!-- /main -->
-    </div>
-    <!-- /container -->
-
-    <!-- JS -->
-    <script type="text/javascript" src="{% static 'mainapp/js/jquery-1.11.3.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'mainapp/js/bootstrap.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'mainapp/js/retina.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'mainapp/js/jquery.backstretch.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'mainapp/js/jquery.countdown.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'mainapp/js/jquery.parallaxify.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'mainapp/js/jquery.particleground.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'mainapp/js/vegas.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'mainapp/js/trianglify.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'mainapp/js/jquery.mb.YTPlayer.js' %}"></script>
-    <script type="text/javascript" src="{% static 'mainapp/js/jquery.nicescroll.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'mainapp/js/jquery.flexslider-min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'mainapp/js/owl.carousel.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'mainapp/js/jquery.appear.js' %}"></script>
-    <script type="text/javascript" src="{% static 'mainapp/js/classie.js' %}"></script>
     <script type="text/javascript" src="{% static 'mainapp/js/main.js' %}"></script>
 
 </body>

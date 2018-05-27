@@ -19,11 +19,21 @@ from django.conf import settings
 from django.conf.urls import url
 from django.conf.urls.static import static
 from django.urls import path
-
+from django.urls import include
+from django.views.static import serve
 from mainapp import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     path('admin/', my_admin.urls),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL,
+                                                                             document_root=settings.MEDIA_ROOT)
+
+# serving media files only on debug mode
+if settings.DEBUG:
+    urlpatterns += [
+        url(r'^media/(?P<path>.*)$', serve, {
+            'document_root': settings.MEDIA_ROOT
+        }),
+    ]
