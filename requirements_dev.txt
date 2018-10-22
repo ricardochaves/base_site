@@ -1,5 +1,5 @@
 ptvsd==4.1.4
 pylint==2.1.1
-autopep8==1.4
+autopep8==1.4.1
 coverage==4.5.1
 coveralls==1.5.1
