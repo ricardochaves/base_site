@@ -7,14 +7,15 @@ services:
   - mysql
   - docker
 before_install:
-  - docker build -t ricardobchaves6/base_site:latest .
   - mysql -e 'CREATE DATABASE base_site;'
 install:
-  - pip install -r requirements.txt
   - pip install -r requirements_dev.txt
 script:
   - coverage run --source='.' manage.py test
 after_success:
   - coveralls
+before_deploy:
+  - docker build -t ricardobchaves6/base_site:latest .
+deploy:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push ricardobchaves6/base_site:latest
