@@ -16,5 +16,5 @@ script:
   - coverage run --source='.' manage.py test
 after_success:
   - coveralls
-  - docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASS"
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push ricardobchaves6/base_site:latest
