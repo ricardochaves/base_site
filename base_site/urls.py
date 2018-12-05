@@ -14,26 +14,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from django_invisible_recaptcha_admin.admin import my_admin
 from django.conf import settings
 from django.conf.urls import url
 from django.conf.urls.static import static
-from django.urls import path
+from django.contrib import admin
 from django.urls import include
+from django.urls import path
 from django.views.static import serve
 from mainapp import views
 
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
-    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
-    path('admin/', my_admin.urls),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL,
-                                                                             document_root=settings.MEDIA_ROOT)
-
+    url(r"^$", views.index, name="index"),
+    url(r"^ckeditor/", include("ckeditor_uploader.urls")),
+    path("admin/", admin.site.urls),
+]
 # serving media files only on debug mode
 if settings.DEBUG:
     urlpatterns += [
-        url(r'^media/(?P<path>.*)$', serve, {
-            'document_root': settings.MEDIA_ROOT
-        }),
+        url(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT})
     ]
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

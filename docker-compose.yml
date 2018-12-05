@@ -7,8 +7,8 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: example
-    volumes:
-      - ./mysql/init:/docker-entrypoint-initdb.d/:ro
+      MYSQL_DATABASE: base_site
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4
   web:
     build: .
     ports:
